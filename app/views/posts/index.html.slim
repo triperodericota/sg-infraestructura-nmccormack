@@ -1,0 +1,28 @@
+h1 = t('.title')
+ 
+= render 'flashes'
+
+table.table
+  thead
+    tr
+      th = Post.human_attribute_name :title
+      th = Post.human_attribute_name :created_at
+      th = Post.human_attribute_name :published
+      th
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = l post.created_at.to_date
+        td = t "boolean.#{post.published.to_s}"
+        td 
+          ul
+            li = link_to t('.object_actions.show'), post
+            li = link_to t('.object_actions.edit'), edit_post_path(post)
+            li = link_to t('.object_actions.destroy'), post, data: { confirm: 'Are you sure?' }, method: :delete
+
+= paginate @posts
+br
+
+= link_to t('.actions.new'), new_post_path, class: 'btn btn-primary'

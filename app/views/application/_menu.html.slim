@@ -1,0 +1,11 @@
+nav.navbar.navbar-dark.bg-dark.navbar-expand-md
+  a.navbar-brand href="#"  SG Blog
+  button.navbar-toggler data-target="#navbarNav" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse.navbar-responsive-collapse
+    ul.navbar-nav
+      li.nav-item
+        = link_to "Inicio", root_path, class: 'nav-link'
+      li.nav-item
+        = link_to "Admin", posts_path, class: 'nav-link'
+
